@@ -1,32 +1,564 @@
-<div class="container">
-
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
-  </div>
-
-  <div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</a>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
-  </div>
-
-  <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-    <div class="thumbnail">
-      <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-      <div class="caption">
-        <h3>{{ awesomeThing.title }}</h3>
-        <p>{{ awesomeThing.description }}</p>
-        <p><a ng-href="{{ awesomeThing.url }}">{{ awesomeThing.url }}</a></p>
+<div ui-view>
+<div class="main">
+  <div class="interact-banner">
+    <div class="container">
+      <div class="row">
+        <div class="noo-traslate-atributes col-sm-12 col-md-6 hidden-xs">
+          <div class="pt-5">
+            <div class="noo-atributes">
+              <img width="494" height="618" src="organicc/images/image-01.png" alt="" />
+              <div class="noo-atributes-item">
+                <div class="noo-atributes-hover">
+                  <div class="noo-atributes-content">
+                    <strong>12 Green Apples</strong>
+                    <p>Maecenas tristique gravida, odio et sagi ttis justo </p>
+                  </div>
+                </div>
+                <span class="eff">
+                  <span class="eff1"></span>
+                  <span class="eff2"></span>
+                  <img width="64" height="64" src="organicc/images/thumb_53x53.jpg" alt=""/>
+                </span>
+              </div>
+              <div class="noo-atributes-item noo-atributes-item2 orange">
+                <div class="noo-atributes-hover">
+                  <div class="noo-atributes-content">
+                    <strong>10 Orange Apples</strong>
+                    <p>Maecenas tristique gravida, odio et sagi ttis justo </p>
+                  </div>
+                </div>
+                <span class="eff">
+                  <span class="eff1"></span>
+                  <span class="eff2"></span>
+                  <img width="53" height="53" src="organicc/images/thumb_53x53.jpg" alt=""/>
+                </span>
+              </div>
+              <div class="noo-atributes-item noo-atributes-item4 orange">
+                <div class="noo-atributes-hover">
+                  <div class="noo-atributes-content">
+                    <strong>15 Pear Apples</strong>
+                    <p>Maecenas tristique gravida, odio et sagi ttis justo </p>
+                  </div>
+                </div>
+                <span class="eff">
+                  <span class="eff1"></span>
+                  <span class="eff2"></span>
+                  <img width="53" height="53" src="organicc/images/thumb_53x53.jpg" alt=""/>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="noo-traslate-product col-sm-12 col-md-6">
+          <div class="pt-5">
+            <div class="noo-short-intro">
+              <h4>Special fruits</h4>
+              <h2>organici store</h2>
+              <div class="price">
+                <span>- Only -</span>
+                $99.00
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
+  <div class="pt-15 pb-11">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="noo-product-grid-wrap commerce product-style">
+            <div class="noo-sh-title">
+              <h2>Our new products</h2>
+              <p>Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt eronec dictum non nulla.</p>
+            </div>
+            <div class="noo-product-filter masonry-filters">
+              <ul class="noo-header-filter" data-option-key="filter">
+                <li>
+                  <a data-option-value="*" href="#all" class="selected">
+                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt="" />
+                    <span>All products</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-option-value=".organic-fruits" href="#organic-fruits">
+                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
+                    <span>Fruits</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-option-value=".vegetable" href="#vegetable">
+                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
+                    <span>Vegetable</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-option-value=".bread" href="#bread">
+                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
+                    <span>Bread</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-option-value=".others" href="#others">
+                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
+                    <span>Others</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="noo-product-grid products row product-grid noo-grid-4">
+              <div class="fruit organic-fruits masonry-item col-md-4 col-sm-6" ng-repeat="product in main.products">
+                <div class="noo-product-inner">
+                  <div class="noo-product-thumbnail">
+                    <a ng-click="main.selectProduct(product)">
+                      <img width="600" height="760" src="organicc/images/product/product_260x330.jpg" alt="" />
+                    </a>
+                    <div class="noo-rating">
+                      <div class="star-rating">
+                        <span style="width:0%"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="noo-product-title">
+                    <h3><a ng-click="main.selectProduct(product)">{{product.name}}</a></h3>
+                    <span class="price"><span class="amount">&#36;{{product.listPrice}}</span></span>
+                    <div class="noo-product-action">
+                      <div class="noo-action">
+                        <a href="#" class="button product_type_simple add_to_cart_button">
+                          <span>Add to cart</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feature-product">
+    <div class="noo-sh-title text-center">
+      <h2>Featured products</h2>
+      <p>Maecenas tristique gravida odio, et sagi ttis justo interdum porta</p>
+    </div>
+    <div class="noo-product-masonry columns-3">
+      <div class="product-masonry">
+        <img width="644" height="380" src="organicc/images/product/product_644x380.jpg" alt="" />
+        <div class="noo-link">
+          <div class="noo-product-table">
+            <div class="noo-product-table-cell">
+              <h4><a href="#">Cookies </a></h4>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by&hellip;
+              </p>
+              <span class="noo-sh-pmeta">
+                <a href="#" class="button product_type_simple add_to_cart_button">
+                  <span>Add to cart</span>
+                </a>
+                <a class="fa fa-link" href="shop-detail.html"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-masonry">
+        <img width="644" height="380" src="images/product/product_644x380.jpg" alt="" />
+        <div class="noo-link">
+          <div class="noo-product-table">
+            <div class="noo-product-table-cell">
+              <h4><a href="#">Grapes </a></h4>
+              <p>
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin&hellip;
+              </p>
+              <span class="noo-sh-pmeta">
+                <a href="#" class="button product_type_simple add_to_cart_button">
+                  <span>Add to cart</span>
+                </a>
+                <a class="fa fa-link" href="shop-detail.html"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-masonry">
+        <img width="644" height="380" src="organicc/images/product/product_644x760.jpg" alt="" />
+        <div class="noo-link">
+          <div class="noo-product-table">
+            <div class="noo-product-table-cell">
+              <h4><a href="#">Jackfruit </a></h4>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by&hellip;
+              </p>
+              <span class="noo-sh-pmeta">
+                <a href="#" class="button product_type_simple add_to_cart_button">
+                  <span>Add to cart</span>
+                </a>
+                <a class="fa fa-link" href="shop-detail.html"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-masonry">
+        <img width="644" height="380" src="organicc/images/product/product_644x760.jpg" alt="" />
+        <div class="noo-link">
+          <div class="noo-product-table">
+            <div class="noo-product-table-cell">
+              <h4><a href="#">Banana </a></h4>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by&hellip;
+              </p>
+              <span class="noo-sh-pmeta">
+                <a href="#" class="button product_type_simple add_to_cart_button">
+                  <span>Add to cart</span>
+                </a>
+                <a class="fa fa-link" href="shop-detail.html"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-masonry">
+        <img width="644" height="380" src="organicc/images/product/product_644x380.jpg" alt="" />
+        <div class="noo-link">
+          <div class="noo-product-table">
+            <div class="noo-product-table-cell">
+              <h4><a href="#">Chicken eggs </a></h4>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by&hellip;
+              </p>
+              <span class="noo-sh-pmeta">
+                <a href="#" class="button product_type_simple add_to_cart_button">
+                  <span>Add to cart</span>
+                </a>
+                <a class="fa fa-link" href="shop-detail.html"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-masonry">
+        <img width="644" height="380" src="organicc/images/product/product_644x380.jpg" alt="" />
+        <div class="noo-link">
+          <div class="noo-product-table">
+            <div class="noo-product-table-cell">
+              <h4><a href="#">Fruits </a></h4>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by&hellip;
+              </p>
+              <span class="noo-sh-pmeta">
+                <a href="#" class="button product_type_simple add_to_cart_button">
+                  <span>Add to cart</span>
+                </a>
+                <a class="fa fa-link" href="shop-detail.html"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-masonry">
+        <img width="644" height="380" src="organicc/images/product/product_644x380.jpg" alt="" />
+        <div class="noo-link">
+          <div class="noo-product-table">
+            <div class="noo-product-table-cell">
+              <h4><a href="#">Peach </a></h4>
+              <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by&hellip;
+              </p>
+              <span class="noo-sh-pmeta">
+                <a href="#" class="button product_type_simple add_to_cart_button">
+                  <span>Add to cart</span>
+                </a>
+                <a class="fa fa-link" href="shop-detail.html"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-11 pb-10">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="noo-sh-title noo-farmer-title">
+            <h2>Our farmer</h2>
+            <p>
+              Fusce sem enim, rhoncus volutpat condimentum ac, placerat semper ligula. Suspendisse in viverra justo ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="noo-farmer">
+            <div class="noo-farmer-thumbnail">
+              <img width="284" height="380" src="organicc/images/team/team_1.png" alt="" />
+            </div>
+            <div class="noo-farmer-content">
+              <h4>Tristique</h4>
+              <p>
+                Maecenas tristique gravida, odio et sagi ttis justo Vestibulum non justo ultrices. Donec dictum non nulla tristique gravida odio.
+              </p>
+              <span class="social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="noo-farmer">
+            <div class="noo-farmer-thumbnail">
+              <img width="330" height="380" src="organicc/images/team/team_2.png" alt=""/>
+            </div>
+            <div class="noo-farmer-content">
+              <h4>Alyssa Hiyama</h4>
+              <p>
+                Maecenas tristique gravida, odio et sagi ttis justo Vestibulum non justo ultrices. Donec dictum non nulla tristique gravida odio.
+              </p>
+              <span class="social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="noo-farmer">
+            <div class="noo-farmer-thumbnail">
+              <img width="285" height="380" src="organicc/images/team/team_3.png" alt="" />
+            </div>
+            <div class="noo-farmer-content">
+              <h4>Alberto Trombin</h4>
+              <p>
+                Maecenas tristique gravida, odio et sagi ttis justo Vestibulum non justo ultrices. Donec dictum non nulla tristique gravida odio.
+              </p>
+              <span class="social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-pinterest"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="call-to-action-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="noo-represent">
+            <img width="194" height="66" src="organicc/images/since.png" alt=""/>
+            <h2>Organic products!</h2>
+            <p>
+              Maecenas tristique gravida odio, et sagittis justo interdum porta. Duislacus mattis, tincidunt eros ac, consequat tortor.
+            </p>
+            <div class="noo-button-creative">
+              <a href="#">
+                <span class="first"></span>
+                <span class="second"></span>
+                Shop now
+                <span class="three"></span>
+                <span class="four"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-12 pb-8">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="noo-sh-title noo-blog-title">
+            <h2>Blog updates</h2>
+            <p>
+              Fusce sem enim, rhoncus volutpat condimentum ac, placerat semper ligula. Suspendisse in viverra justo <br />lipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div class="masonry noo-blog">
+            <div class="row masonry-container">
+              <div class="masonry-item col-md-4 col-sm-6">
+                <div class="blog-item">
+                  <a class="blog-thumbnail" href="blog-detail.html">
+                    <img width="600" height="440" src="organicc/images/blog/blog_600x440.jpg" alt=""/>
+                  </a>
+                  <div class="blog-description">
+                    <span class="cat">
+                      <a href="#">Organic Food</a>/<a href="#">Tips &amp; Guides</a>
+                    </span>
+                    <h3><a href="blog-detail.html">Tips for Ripening your Fruit</a></h3>
+                    <p class="blog_excerpt">
+                      Maecenas tristique gravida, odio et sagi ttis justo. Susp endisse ultricies nisi vel quam suscipit, et rutrum odio porttitor. Donec...
+                    </p>
+                    <a class="view-more" href="blog-detail.html">View more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="masonry-item col-md-4 col-sm-6">
+                <div class="blog-item">
+                  <a class="blog-thumbnail" href="blog-detail.html">
+                    <img width="600" height="440" src="organicc/images/blog/blog_600x440.jpg" alt=""/>
+                  </a>
+                  <div class="blog-description">
+                    <span class="cat">
+                      <a href="#">General</a>/<a href="#">Recipes</a>
+                    </span>
+                    <h3><a href="blog-detail.html">Feeding kids organic food</a></h3>
+                    <p class="blog_excerpt">
+                      Maecenas tristique gravida, odio et sagi ttis justo. Susp endisse ultricies nisi vel quam suscipit, et rutrum odio porttitor. Donec...
+                    </p>
+                    <a class="view-more" href="blog-detail.html">View more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="masonry-item col-md-4 col-sm-6">
+                <div class="blog-item">
+                  <a class="blog-thumbnail" href="blog-detail.html">
+                    <img width="600" height="440" src="organicc/images/blog/blog_600x440.jpg" alt=""/>
+                  </a>
+                  <div class="blog-description">
+                    <span class="cat">
+                      <a href="#">Diet</a>/<a href="#">Organic Food</a>
+                    </span>
+                    <h3><a href="blog-detail.html">Health Benefits of a Raw Food</a></h3>
+                    <p class="blog_excerpt">
+                      As more and more people are turning to more organic lifestyles and trying to improve their health through adopting better...
+                    </p>
+                    <a class="view-more" href="blog-detail.html">View more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonial">
+    <div class="noo_testimonial_wrap">
+      <img width="328" height="851" src="organicc/images/image_left.png" class="image_left" alt=""/>
+      <img width="329" height="789" src="organicc/images/image_right.png" class="image_right" alt="" />
+      <div class="noo-testimonial-sync2 testimonial-three">
+        <div class="item">
+          <div class="testimonial-content">
+            <h3 class="testi-title">Taylor McCartney</h3>
+            <div>
+              <i class="fa fa-quote-left"></i>
+              <p>
+                Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt ero. Donec dictum non nulla ut tris tique gravida odio lobortis tristique gravida. Aliquam erat volutpat. Pellentesque auctor, arcu id tristique.
+              </p>
+              <i class="fa fa-quote-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="testimonial-content">
+            <h3 class="testi-title">Ashley Simpsons</h3>
+            <div>
+              <i class="fa fa-quote-left"></i>
+              <p>
+                Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt ero. Donec dictum non nulla ut tris tique gravida odio lobortis tristique gravida. Aliquam erat volutpat. Pellentesque auctor, arcu id tristique.
+              </p>
+              <i class="fa fa-quote-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="testimonial-content">
+            <h3 class="testi-title">Olivia Jolie</h3>
+            <div>
+              <i class="fa fa-quote-left"></i>
+              <p>
+                Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt ero. Donec dictum non nulla ut tris tique gravida odio lobortis tristique gravida. Aliquam erat volutpat. Pellentesque auctor, arcu id tristique.
+              </p>
+              <i class="fa fa-quote-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="testimonial-content">
+            <h3 class="testi-title">Tyrion Lannister</h3>
+            <div>
+              <i class="fa fa-quote-left"></i>
+              <p>
+                Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt ero. Donec dictum non nulla ut tris tique gravida odio lobortis tristique gravida. Aliquam erat volutpat. Pellentesque auctor, arcu id tristique.
+              </p>
+              <i class="fa fa-quote-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="noo-testimonial-sync1 testimonial-three">
+        <div class="item">
+          <div class="background_image">
+            <img class="noo_testimonial_avatar" src="organicc/images/avatar/avatar_120x120.jpg" alt=""/>
+          </div>
+          <div class="testimonial-name">
+            <h4 class="noo_testimonial_name">- Taylor -</h4>
+            <span class="noo_testimonial_position">( Web Desinger )</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="background_image">
+            <img class="noo_testimonial_avatar" src="organicc/images/avatar/avatar_120x120.jpg" alt=""/>
+          </div>
+          <div class="testimonial-name">
+            <h4 class="noo_testimonial_name">- Ashley -</h4>
+            <span class="noo_testimonial_position">( Developer )</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="background_image">
+            <img class="noo_testimonial_avatar" src="organicc/images/avatar/avatar_120x120.jpg" alt=""/>
+          </div>
+          <div class="testimonial-name">
+            <h4 class="noo_testimonial_name">- Olivia -</h4>
+            <span class="noo_testimonial_position">( Web Desinger )</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="background_image">
+            <img class="noo_testimonial_avatar" src="organicc/images/avatar/avatar_120x120.jpg" alt=""/>
+          </div>
+          <div class="testimonial-name">
+            <h4 class="noo_testimonial_name">- Tyrion Lannister -</h4>
+            <span class="noo_testimonial_position">( Ceo )</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="newsletter">
+    <div class="noo-sh-mailchimp">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 col-xs-12">
+            <h3 class="noo-mail-title">Subscribe to us!</h3>
+            <p class="noo-mail-desc">
+              Enter Your email address for our mailing list to keep yourself update.
+            </p>
+          </div>
+          <div class="col-md-7 col-xs-12">
+            <form>
+              <div class="newsletter-form-fields">
+                <input type="email" name="EMAIL" placeholder="Email address" required />
+                <input type="submit" value="submit"/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

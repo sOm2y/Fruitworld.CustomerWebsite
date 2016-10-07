@@ -6,13 +6,28 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, webDevTec, toastr,fruitWorldAPIService,$state) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
     vm.creationDate = 1474942052884;
     vm.showToastr = showToastr;
+
+    fruitWorldAPIService.query({
+        section: 'products/read/'
+      })
+      .$promise.then(function(res) {
+        console.log(res);
+        vm.products = res;
+
+        vm.selectProduct = function(product){
+          vm.selectedProduct = product;
+          $state.go('home.shop.details');
+        }
+      }, function(err) {
+        console.log(err);
+      });
 
     activate();
 
