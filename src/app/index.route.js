@@ -9,13 +9,13 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/home',
+        url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main'
       })
       .state('home.shop', {
-        url: '/shop',
+        url: 'shop',
 
             templateUrl: 'app/shop/shop.html',
             controller: 'ShopController',
@@ -32,9 +32,29 @@
             controllerAs: 'shopDetails'
           }
         }
+      })
+
+      .state('home.box', {
+        url: 'box',
+
+            templateUrl: 'app/box/box.html',
+            controller: 'BoxController',
+            controllerAs: 'box'
+
+
+      })
+      .state('home.box.details', {
+        url: '/details',
+        views: {
+          "box-details-view": {
+            templateUrl: 'app/box/boxDetails.html',
+            controller: 'BoxController',
+            controllerAs: 'boxDetails'
+            }
+          }
 
       }).state('home.contact', {
-        url: '/contact',
+        url: 'contact',
 
             templateUrl: 'app/contact/contact.html',
             controller: 'ContactController',
@@ -42,9 +62,19 @@
 
 
 
+      })
+      .state('home.shoppingCart', {
+        url: 'shopping-cart',
+
+            templateUrl: 'app/shoppingCart/shoppingCart.html',
+            controller: 'ShoppingCartController',
+            controllerAs: 'shoppingCart'
+
+
+
       });
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
   }
 
 })();

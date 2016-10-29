@@ -57,12 +57,12 @@
   								<span><i class="fa fa-user"></i></span>
   								<a href="my-account.html">My Account</a>
   							</li>
+<!--   							<li>
+  <span><i class="fa fa-heart-o"></i></span>
+  <a href="wishlist.html">Wishlist</a>
+</li> -->
   							<li>
-  								<span><i class="fa fa-heart-o"></i></span>
-  								<a href="wishlist.html">Wishlist</a>
-  							</li>
-  							<li>
-  								<a href="cart.html">
+  								<a href="" ui-sref="home.shoppingCart">
   									<span class="has-cart">
   										<i class="fa fa-shopping-cart"></i>
   										<em>0</em>
@@ -92,25 +92,17 @@
   											<span></span>
   										</div>
   									</div>
-  									<a href="./" class="navbar-brand">
+  									<a href="" ui-sref="home" class="navbar-brand">
   										<img class="noo-logo-img noo-logo-normal" src="organicc/images/logo.png" alt="Organic Store">
   									</a>
   								</div>
   								<nav class="pull-right noo-main-menu">
   									<ul class="nav-collapse navbar-nav">
   										<li class="menu-item-has-children current-menu-item">
-  											<a ui-sref="home">Home</a>
-  											<ul class="sub-menu">
-  												<li><a href="index-2.html">Homepage 2</a></li>
-  												<li><a href="index-3.html">Homepage 3</a></li>
-  												<li><a href="index-4.html">Homepage 4</a></li>
-  												<li><a href="index-5.html">Homepage 5</a></li>
-  												<li><a href="index-6.html">Homepage 6</a></li>
-  											</ul>
+  											<a ui-sref="home" ui-sref-active="active">Home</a>
   										</li>
-  										<li><a href="our-story.html">Our Story</a></li>
   										<li class="menu-item-has-children noo_megamenu mega-col-columns-4">
-  											<a href="" ui-sref="home.shop">Shop</a>
+  											<a href="" ui-sref="home.shop" ui-sref-active="active" >Shop</a>
   											<ul class="sub-menu">
   												<li class="menu-item-has-children">
   													<a href="#">Shop page</a>
@@ -216,24 +208,9 @@
   											</ul>
   										</li>
   										<li class="menu-item-has-children">
-  											<a href="blog.html">Blog</a>
-  											<ul class="sub-menu">
-  												<li class="menu-item-has-children">
-  													<a href="blog-masonry.html">Blog Masonry</a>
-  													<ul class="sub-menu">
-  														<li><a href="blog-masonry-two-columns.html">2 Columns</a></li>
-  														<li><a href="blog-masonry.html">3 Columns</a></li>
-  														<li><a href="blog-masonry-four-columns.html">4 Columns</a></li>
-  													</ul>
-  												</li>
-  												<li><a href="blog.html">Blog Listing</a></li>
-  												<li><a href="blog-detail.html">Blog Single Default</a></li>
-  												<li><a href="blog-detail-video.html">Blog Single Video</a></li>
-  												<li><a href="blog-detail-audio.html">Blog Single SoundCloud</a></li>
-  												<li><a href="blog-detail-slider.html">Blog Single Slider</a></li>
-  											</ul>
+  											<a href="" ui-sref="home.box" ui-sref-active="active" >box</a>
   										</li>
-  										<li><a href="" ui-sref="home.contact">Contact</a></li>
+  										<li><a href="" ui-sref="home.contact" ui-sref-active="active" >Contact</a></li>
   									</ul>
   								</nav>
   							</div>
@@ -255,7 +232,7 @@
     <footer class="wrap-footer footer-2 colophon wigetized">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-3 col-sm-6 item-footer-four">
+						<div class="col-md-4 col-sm-6 item-footer-four">
 							<div class="widget widget_about">
 								<div class="noo_about_widget">
 									<a href="#">
@@ -286,7 +263,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6 item-footer-four">
+						<div class="col-md-4 col-sm-6 item-footer-four">
 							<div class="widget widget_text">
 								<h4 class="widget-title">Contact</h4>
 								<div class="textwidget">
@@ -306,13 +283,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6 item-footer-four">
-							<div class="widget widget_flickr">
-								<h4 class="widget-title">Photo in flickr</h4>
-								<div class='flickr-badge-wrapper'></div>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 item-footer-four">
+						<div class="col-md-4 col-sm-6 item-footer-four">
 							<div class="widget widget_noo_openhours">
 								<h4 class="widget-title">Working time</h4>
 								<ul class="noo-openhours">
