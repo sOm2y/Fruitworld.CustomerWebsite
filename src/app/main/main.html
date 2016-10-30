@@ -81,28 +81,10 @@
                     <span>All products</span>
                   </a>
                 </li>
-                <li>
+                <li ng-repeat="category in main.categories">
                   <a data-option-value=".organic-fruits" href="#organic-fruits">
                     <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
-                    <span>Fruits</span>
-                  </a>
-                </li>
-                <li>
-                  <a data-option-value=".vegetable" href="#vegetable">
-                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
-                    <span>Vegetable</span>
-                  </a>
-                </li>
-                <li>
-                  <a data-option-value=".bread" href="#bread">
-                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
-                    <span>Bread</span>
-                  </a>
-                </li>
-                <li>
-                  <a data-option-value=".others" href="#others">
-                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
-                    <span>Others</span>
+                    <span>{{category.name}}</span>
                   </a>
                 </li>
               </ul>

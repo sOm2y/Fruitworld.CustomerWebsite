@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr,fruitWorldAPIService,$state) {
+  function MainController($timeout, webDevTec, toastr, fruitWorldAPIService, $state, shoppingCartService,$scope) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -23,12 +23,39 @@
 
         vm.selectProduct = function(product){
           vm.selectedProduct = product;
+          localStorage.setItem('selectedProduct',JSON.stringify(vm.selectedProduct));
+          console.log(vm.selectedProduct);
           $state.go('home.shop.details');
-        }
+        };
+      }, function(err) {
+        console.log(err);
+      });
+    fruitWorldAPIService.query({
+        section: 'products/category/'
+      })
+      .$promise.then(function(res) {
+        console.log(res);
+        vm.categories = res;
       }, function(err) {
         console.log(err);
       });
 
+    $scope.$watch(function() {
+      return localStorage.getItem('countedShoppingCart');
+    }, function(newVal, oldVal) {
+      if (localStorage.getItem('countedShoppingCart')) {
+        $scope.countedProducts = shoppingCartService.getShoppingCart();
+        shoppingCartService.getTotalPrice($scope.countedProducts);
+      }
+    }, true);
+
+    vm.addProduct = function(product) {
+      shoppingCartService.addProduct(product);
+      var updatedShoppingCart = JSON.parse(localStorage.getItem('countedShoppingCart'));
+      shoppingCartService.getTotalPrice(updatedShoppingCart);
+      // vm.$apply(); //run a digest cycle again to refesh dom
+      vm.countedShoppingCart = shoppingCartService.getShoppingCart();
+    };
     activate();
 
     function activate() {
