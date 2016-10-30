@@ -55,7 +55,7 @@
   						<ul>
   							<li>
   								<span><i class="fa fa-user"></i></span>
-  								<a href="my-account.html">My Account</a>
+  								<a href="" ui-sref="home.account">My Account</a>
   							</li>
 <!--   							<li>
   <span><i class="fa fa-heart-o"></i></span>
@@ -65,10 +65,10 @@
   								<a href="" ui-sref="home.shoppingCart">
   									<span class="has-cart">
   										<i class="fa fa-shopping-cart"></i>
-  										<em>0</em>
+  										<em>{{totalCount}}</em>
   									</span>
   								</a>
-  								&nbsp; &#8209; &nbsp; <span class="amount">&#36;0.00</span>
+  								&nbsp; &#8209; &nbsp; <span class="amount">{{totalPrice | currency}}</span>
   							</li>
   							<li>
   								<a href="#" class="fa fa-search noo-search" id="noo-search"></a>

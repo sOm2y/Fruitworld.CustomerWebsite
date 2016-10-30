@@ -23,6 +23,15 @@
 
 
       })
+      .state('home.account', {
+        url: 'account',
+
+            templateUrl: 'app/account/account.html',
+            controller: 'AccountController',
+            controllerAs: 'account'
+
+
+      })
       .state('home.shop.details', {
         url: '/details',
         views: {
