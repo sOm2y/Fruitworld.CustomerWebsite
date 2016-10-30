@@ -31,7 +31,7 @@
               </form>
             </div>
             <div class="products row product-grid">
-              <div class="masonry-item noo-product-column col-md-4 col-sm-6 product" ng-repeat="product in shop.products">
+              <div class="masonry-item noo-product-column col-md-4 col-sm-6 product" ng-repeat="product in main.products">
                 <div class="noo-product-inner">
                   <div class="noo-product-thumbnail">
                     <a ng-click="main.selectProduct(product)">
@@ -48,7 +48,7 @@
                     <span class="price"><span class="amount">&#36;{{product.listPrice}}</span></span>
                     <div class="noo-product-action">
                       <div class="noo-action">
-                        <a href="#" class="button product_type_simple add_to_cart_button">
+                        <a href="" ng-click="main.addProduct(product)" class="button product_type_simple add_to_cart_button">
                           <span>Add to cart</span>
                         </a>
                       </div>
@@ -77,7 +77,7 @@
               <div class="widget commerce widget_product_categories">
                 <h3 class="widget-title">Categories</h3>
                 <ul class="product-categories">
-                  <li ng-repeat="category in shop.categories"><a href="#">{{category.name}}</a></li>
+                  <li ng-repeat="category in main.categories"><a href="#">{{category.name}}</a></li>
 
                 </ul>
               </div>

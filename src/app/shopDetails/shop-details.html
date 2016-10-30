@@ -22,18 +22,18 @@
                     </div>
                   </div>
                   <div class="summary entry-summary">
-                    <h1 class="product_title entry-title">{{main.selectedProduct.name}}</h1>
-                    <p class="price"><span class="amount">&#36;{{main.selectedProduct.listPrice}}</span></p>
-                    <p class="description">{{main.selectedProduct.description}}</p>
+                    <h1 class="product_title entry-title">{{shopDetails.selectedProduct.name}}</h1>
+                    <p class="price"><span class="amount">&#36;{{shopDetails.selectedProduct.listPrice}}</span></p>
+                    <p class="description">{{shopDetails.selectedProduct.description}}</p>
                     <div class="product_meta">
-                      <span class="posted_in">Category: <a href="#">{{main.selectedProduct.category}}</a></span>
-                      <span class="tagged_as">Tags: <a href="#">{{main.selectedProduct.category}}</a></span>
+                      <span class="posted_in">Category: <a href="#">{{shopDetails.selectedProduct.category}}</a></span>
+                      <span class="tagged_as">Tags: <a href="#">{{shopDetails.selectedProduct.category}}</a></span>
                     </div>
                     <form class="cart">
                       <div class="quantity">
                         <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
                       </div>
-                      <button type="submit" class="single_add_to_cart_button button">Add to cart</button>
+                      <button type="submit" class="single_add_to_cart_button button" ng-click="main.addProduct(shopDetails.selectedProduct)">Add to cart</button>
                     </form>
                     <div class="yith-wcwl-add-to-wishlist">
                                               <div class="yith-wcwl-add-button">
@@ -276,7 +276,7 @@
                 <div class="widget commerce widget_product_categories">
                   <h3 class="widget-title">Categories</h3>
                   <ul class="product-categories">
-                    <li ng-repeat="category in shop.categories"><a href="#">{{category.name}}</a></li>
+                    <li ng-repeat="category in main.categories"><a href="#">{{category.name}}</a></li>
                   </ul>
                 </div>
                 <div class="widget commerce widget_products">
