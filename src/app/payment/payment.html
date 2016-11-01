@@ -1,0 +1,52 @@
+<div class="main" ui-view="shop-details-view">
+  <section class="noo-page-heading eff">
+    <div class="container">
+      <div class="noo-heading-content">
+        <h1 class="page-title eff">Check Out</h1>
+        <!-- <div class="noo-page-breadcrumb eff">
+          <a href="./" class="home">Organici</a>/<span>Shop Grid</span>
+        </div> -->
+      </div>
+    </div>
+  </section>
+  <div class="commerce">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+          <div id="form-container">
+
+            <div class="page-header text-center">
+              <h2>Payment Steps</h2>
+              <ul class="noo-header-filter" data-option-key="filter">
+                <li>
+                  <a ui-sref-active="active" ui-sref="home.payment.address"><span class="fa fa-map-marker fa-2x"></span>Address</a>
+                </li>
+
+                <li >
+                  <a ui-sref-active="active" ui-sref="home.payment.billing"><span class="fa fa-list-alt fa-2x"></span>Billing</a>
+                </li>
+                <li>
+                  <a ui-sref-active="active" ui-sref="home.payment.shipping"><span class="fa fa-truck fa-2x"></span>Shipping</a>
+                </li>
+                <li>
+                  <a ui-sref-active="active" ui-sref="home.payment.method"><span class="fa fa-credit-card-alt fa-2x"></span> Payment</a>
+                </li>
+                <li>
+                <a ui-sref-active="active" ui-sref="home.payment.order"><span class="fa fa-calendar-check-o fa-2x"></span> Payment</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- use ng-submit to catch the form submission and use our Angular function -->
+            <form id="signup-form" ng-submit="processForm()">
+              <!-- our nested state views will be injected here -->
+              <div id="form-views" ui-view></div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
