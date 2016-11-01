@@ -107,20 +107,24 @@
       }
     ])
     .service('shoppingCartService', ['$rootScope', function($rootScope) {
-      this.addProduct = function(newProduct) {
+      this.addProduct = function(newProduct,quantity) {
         if (localStorage.getItem('countedShoppingCart')) {
           var oldShoppingCart = JSON.parse(localStorage.getItem('countedShoppingCart'));
           updateProductIndex = _.findIndex(oldShoppingCart, function(oldProduct) { return oldProduct.productId === newProduct.productId; });
           if(updateProductIndex !== -1){
             oldShoppingCart[updateProductIndex].product.push(newProduct);
-            oldShoppingCart[updateProductIndex].count++;
+            if(quantity>1){
+              oldShoppingCart[updateProductIndex].count=oldShoppingCart[updateProductIndex].count+quantity;
+            }else{
+              oldShoppingCart[updateProductIndex].count++;
+            }
           }else{
             var newProducts = [];
             newProducts.push(newProduct);
             oldShoppingCart.push({
               productId:newProduct.productId,
               product:newProducts,
-              count:newProducts.length
+              count: quantity>1 ? quantity : newProducts.length
             })
           }
           localStorage.setItem('countedShoppingCart', JSON.stringify(oldShoppingCart));

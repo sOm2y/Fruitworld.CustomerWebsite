@@ -31,9 +31,9 @@
                     </div>
                     <form class="cart">
                       <div class="quantity">
-                        <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
+                        <input type="number" ng-model="shopDetails.quantity" title="Qty" class="input-text qty text"/>
                       </div>
-                      <button type="submit" class="single_add_to_cart_button button" ng-click="main.addProduct(shopDetails.selectedProduct)">Add to cart</button>
+                      <button type="submit" class="single_add_to_cart_button button" ng-click="main.addProduct(shopDetails.selectedProduct,shopDetails.quantity)">Add to cart</button>
                     </form>
                     <div class="yith-wcwl-add-to-wishlist">
                                               <div class="yith-wcwl-add-button">

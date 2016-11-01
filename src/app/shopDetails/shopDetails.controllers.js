@@ -8,6 +8,7 @@
   /** @ngInject */
   function ShopDetailsController(fruitWorldAPIService) {
     var vm = this;
+    vm.quantity = 1;
     vm.selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
   }
 })();

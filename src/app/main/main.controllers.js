@@ -49,8 +49,8 @@
       }
     }, true);
 
-    vm.addProduct = function(product) {
-      shoppingCartService.addProduct(product);
+    vm.addProduct = function(product,quantity) {
+      shoppingCartService.addProduct(product,quantity);
       var updatedShoppingCart = JSON.parse(localStorage.getItem('countedShoppingCart'));
       shoppingCartService.getTotalPrice(updatedShoppingCart);
       // vm.$apply(); //run a digest cycle again to refesh dom
