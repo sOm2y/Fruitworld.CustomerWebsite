@@ -8,7 +8,7 @@
   /** @ngInject */
   function PaymentController($http) {
     var vm = this;
-    $http.get('http://f2appspaymentdev.azurewebsites.net/api/TransactionClients/token').then(function(res) {
+    $http.get('http://fruitworldwebapi.azurewebsites.net/api/TransactionClients/token').then(function(res) {
         console.log(res);
 				braintree.setup(res.data, "dropin", {
 					container: "payment-form",
@@ -19,10 +19,11 @@
 
 						$http({
 							method: 'POST',
-							url: 'http://f2appspaymentdev.azurewebsites.net/api/TransactionClients/create',
+							url: 'http://fruitworldwebapi.azurewebsites.net/api/TransactionClients/CreateTransation',
 							data: {
 								amount: vm.amount,
-								payment_method_nonce: nonce
+								payment_method_nonce: nonce,
+                orderId: 'ORD0005601399'
 							}
 						}).success(function (data) {
 							vm.transation = data;
