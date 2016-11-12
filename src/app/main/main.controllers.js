@@ -6,13 +6,35 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, fruitWorldAPIService, $state, shoppingCartService,$scope) {
+  function MainController( $rootScope,$timeout, webDevTec, toastr, fruitWorldAPIService, $state, shoppingCartService,$scope) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
     vm.creationDate = 1474942052884;
     vm.showToastr = showToastr;
+
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
+        // $rootScope.isLoading = true;
+    	var requireLogin = toState.data.requireLogin;
+      $rootScope.buttonDisable = false;
+			if(localStorage.getItem('oauth_token')){
+				var user = localStorage.getItem('oauth_token');
+				$rootScope.setUserAuth(user);
+			}else{
+        if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
+          event.preventDefault();
+
+          $state.go('home.account');
+
+        }
+			}
+    });
+
+    $rootScope.setUserAuth = function(oauth){
+      var authHeader = 'Bearer '+oauth.access_token;
+      $http.defaults.headers.common.Authorization = authHeader;
+  };
 
     fruitWorldAPIService.query({
         section: 'products/read/'
@@ -21,6 +43,26 @@
         console.log(res);
         vm.products = res;
 
+        vm.filteredProducts = [],
+        vm.currentPage = 1,
+        vm.numPerPage = 12,
+        vm.maxSize = 5;
+
+
+        vm.pageChanged = function(){
+          var begin = ((vm.currentPage - 1) * vm.numPerPage),
+            end = begin + vm.numPerPage;
+
+          vm.filteredProducts = vm.products.slice(begin, end);
+        };
+        vm.pageChanged();
+
+        vm.selectProduct = function(box) {
+          vm.selectedBox = box;
+          localStorage.setItem('selectedBox', JSON.stringify(vm.selectedBox));
+          console.log(vm.selectedBox);
+          $state.go('home.box.details');
+        };
         vm.selectProduct = function(product){
           vm.selectedProduct = product;
           localStorage.setItem('selectedProduct',JSON.stringify(vm.selectedProduct));

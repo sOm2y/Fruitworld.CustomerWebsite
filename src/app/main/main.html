@@ -74,23 +74,23 @@
               <p>Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt eronec dictum non nulla.</p>
             </div>
             <div class="noo-product-filter masonry-filters">
-              <ul class="noo-header-filter" data-option-key="filter">
-                <li>
-                  <a data-option-value="*" href="#all" class="selected">
-                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt="" />
-                    <span>All products</span>
-                  </a>
-                </li>
-                <li ng-repeat="category in main.categories">
-                  <a data-option-value=".organic-fruits" href="#organic-fruits">
-                    <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
-                    <span>{{category.name}}</span>
-                  </a>
-                </li>
-              </ul>
+        <!--       <ul class="noo-header-filter" data-option-key="filter">
+          <li>
+            <a data-option-value="*" href="#all" class="selected">
+              <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt="" />
+              <span>All products</span>
+            </a>
+          </li>
+          <li ng-repeat="category in main.categories">
+            <a data-option-value=".organic-fruits" href="#organic-fruits">
+              <img width="30" height="26" src="organicc/images/filter/filter_30x30.jpg" alt=""/>
+              <span>{{category.name}}</span>
+            </a>
+          </li>
+        </ul> -->
             </div>
             <div class="noo-product-grid products row product-grid noo-grid-4">
-              <div class="fruit organic-fruits masonry-item col-md-4 col-sm-6" ng-repeat="product in main.products">
+              <div class="fruit organic-fruits masonry-item col-md-4 col-sm-6" ng-repeat="product in main.products | limitTo:4 ">
                 <div class="noo-product-inner">
                   <div class="noo-product-thumbnail">
                     <a ng-click="main.selectProduct(product)">
