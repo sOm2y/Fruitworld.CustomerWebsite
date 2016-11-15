@@ -16,8 +16,7 @@
     
     
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
-        // $rootScope.isLoading = true;
-      loadingService.activate(true);
+      $rootScope.isLoading = true;
     	var requireLogin = toState.data.requireLogin;
       $rootScope.buttonDisable = false;
     
@@ -62,7 +61,7 @@
           $state.go('shop.details');
         };
         
-          loadingService.activate(false);
+         $rootScope.isLoading = false;
       }, function(err) {
         console.log(err);
       });

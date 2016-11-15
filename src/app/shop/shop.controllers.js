@@ -6,7 +6,7 @@
     .controller('ShopController', ShopController);
 
   /** @ngInject */
-  function ShopController(fruitWorldAPIService,$state,loadingService) {
+  function ShopController($rootScope,fruitWorldAPIService,$state,loadingService) {
     var vm = this;
     loadingService.activate(true);
     fruitWorldAPIService.query({
@@ -15,7 +15,7 @@
       .$promise.then(function(res) {
         console.log(res);
         vm.products = res;
-        loadingService.activate(false);
+        
         vm.filteredProducts = [],
         vm.currentPage = 1,
         vm.numPerPage = 12,
@@ -36,7 +36,7 @@
           console.log(vm.selectProduct);
           $state.go('shop.details');
         };
-      
+         $rootScope.isLoading = false;
       }, function(err) {
         console.log(err);
       });

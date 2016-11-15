@@ -6,7 +6,7 @@
     .controller('BoxController', BoxController);
 
   /** @ngInject */
-  function BoxController(fruitWorldAPIService,$scope,$state) {
+  function BoxController( $rootScope,fruitWorldAPIService,$scope,$state) {
     var vm = this;
     fruitWorldAPIService.query({
         section: 'box/read/'
@@ -35,6 +35,7 @@
           $state.go('box.details');
         };
         
+        $rootScope.isLoading = false;
       }, function(err) {
         console.log(err);
       });
