@@ -58,52 +58,52 @@
                 <div class="box-inner">
                   <div class="box-inner-child">
                     <div class="box-thumbail">
-                      <a href="" ui-sref="home.box.details">
+                      <a href="" ng-click="box.selectBox(singlebox)">
                         <img src="images/box/box_516x713.jpg" alt="" />
                       </a>
                     </div>
                     <div class="box-content">
-                      <h3>{{singlebox.boxName?singlebox.boxName:singlebox.boxId}}</h3>
-                      <p>{{singlebox.description}}</p>
+                      <h3 ng-click="box.selectBox(singlebox)">{{singlebox.boxName?singlebox.boxName:singlebox.boxId}}</h3>
+                      <p  ng-click="box.selectBox(singlebox)">{{singlebox.description}}</p>
                     </div>
                     <div class="box-inner-product">
-                      <ul class="product-box-header">
-                        <li>
-                          <span data-id="#box_1_tab1" data-color="#ecc347">
-                              <a href="" ui-sref="home.box.details">Small</a>
-                            </span>
-                        </li>
-                        <li>
-                          <span data-id="#box_1_tab2" data-color="#ecc347">
-                              <a href="" ui-sref="home.box.details">Medium</a>
-                            </span>
-                        </li>
-                        <li>
-                          <span data-id="#box_1_tab3" data-color="#ecc347">
-                              <a href="" ui-sref="home.box.details">Large</a>
-                            </span>
-                        </li>
-                      </ul>
-                      <div class="box-description-tab">
-                        <div class="box-content-tab" id="box_1_tab1">
-                          <h4><a href="box-detail.html">Small Detox Juicing Box</a></h4>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                          </p>
-                        </div>
-                        <div class="box-content-tab" id="box_1_tab2">
-                          <h4><a href="box-detail.html">Medium Detox Juicing Box</a></h4>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                          </p>
-                        </div>
-                        <div class="box-content-tab" id="box_1_tab3">
-                          <h4><a href="box-detail.html">Large Detox Juicing Box</a></h4>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                          </p>
-                        </div>
-                      </div>
+                      <!--<ul class="product-box-header">-->
+                      <!--  <li>-->
+                      <!--    <span data-id="#box_1_tab1" data-color="#ecc347">-->
+                      <!--        <a href="" ui-sref="home.box.details">Small</a>-->
+                      <!--      </span>-->
+                      <!--  </li>-->
+                      <!--  <li>-->
+                      <!--    <span data-id="#box_1_tab2" data-color="#ecc347">-->
+                      <!--        <a href="" ui-sref="home.box.details">Medium</a>-->
+                      <!--      </span>-->
+                      <!--  </li>-->
+                      <!--  <li>-->
+                      <!--    <span data-id="#box_1_tab3" data-color="#ecc347">-->
+                      <!--        <a href="" ui-sref="home.box.details">Large</a>-->
+                      <!--      </span>-->
+                      <!--  </li>-->
+                      <!--</ul>-->
+                      <!--<div class="box-description-tab">-->
+                      <!--  <div class="box-content-tab" id="box_1_tab1">-->
+                      <!--    <h4><a href="box-detail.html">Small Detox Juicing Box</a></h4>-->
+                      <!--    <p>-->
+                      <!--      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua-->
+                      <!--    </p>-->
+                      <!--  </div>-->
+                      <!--  <div class="box-content-tab" id="box_1_tab2">-->
+                      <!--    <h4><a href="box-detail.html">Medium Detox Juicing Box</a></h4>-->
+                      <!--    <p>-->
+                      <!--      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua-->
+                      <!--    </p>-->
+                      <!--  </div>-->
+                      <!--  <div class="box-content-tab" id="box_1_tab3">-->
+                      <!--    <h4><a href="box-detail.html">Large Detox Juicing Box</a></h4>-->
+                      <!--    <p>-->
+                      <!--      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua-->
+                      <!--    </p>-->
+                      <!--  </div>-->
+                      <!--</div>-->
                     </div>
                   </div>
                 </div>

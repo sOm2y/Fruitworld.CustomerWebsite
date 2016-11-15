@@ -17,8 +17,8 @@
             requireLogin: false
         }
       })
-      .state('home.shop', {
-        url: 'shop',
+      .state('shop', {
+        url: '/shop',
         templateUrl: 'app/shop/shop.html',
         controller: 'ShopController',
         controllerAs: 'shop',
@@ -79,7 +79,7 @@
             requireLogin: true
         }
       })
-      .state('home.shop.details', {
+      .state('shop.details', {
         url: '/details',
         views: {
           "shop-details-view": {
@@ -93,8 +93,8 @@
         }
       })
 
-    .state('home.box', {
-        url: 'box',
+    .state('box', {
+        url: '/box',
         templateUrl: 'app/box/box.html',
         controller: 'BoxController',
         controllerAs: 'box',
@@ -102,12 +102,12 @@
             requireLogin: false
         }
       })
-      .state('home.box.details', {
+      .state('box.details', {
         url: '/details',
         views: {
           "box-details-view": {
-            templateUrl: 'app/box/boxDetails.html',
-            controller: 'BoxController',
+            templateUrl: 'app/boxDetails/boxDetails.html',
+            controller: 'BoxDetailsController',
             controllerAs: 'boxDetails'
           }
         },

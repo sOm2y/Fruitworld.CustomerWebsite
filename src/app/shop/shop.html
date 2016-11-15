@@ -31,10 +31,10 @@
               </form>
             </div>
             <div class="products row product-grid">
-              <div class="masonry-item noo-product-column col-md-4 col-sm-6 product" ng-repeat="product in main.products">
+              <div class="masonry-item noo-product-column col-md-4 col-sm-6 product" ng-repeat="product in shop.filteredProducts">
                 <div class="noo-product-inner">
                   <div class="noo-product-thumbnail">
-                    <a ng-click="main.selectProduct(product)">
+                    <a href="" ng-click="shop.selectProduct(product)">
                       <img width="600" height="760" src="organicc/images/product/product_260x330.jpg" alt="" />
                     </a>
                     <div class="noo-rating">
@@ -44,7 +44,7 @@
                     </div>
                   </div>
                   <div class="noo-product-title">
-                    <h3><a ng-click="main.selectProduct(product)">{{product.name}}</a></h3>
+                    <h3><a ng-click="shop.selectProduct(product)">{{product.name}}</a></h3>
                     <span class="price"><span class="amount">&#36;{{product.listPrice}}</span></span>
                     <div class="noo-product-action">
                       <div class="noo-action">
@@ -59,10 +59,7 @@
 
             </div>
             <div class="pagination list-center">
-              <span class="page-numbers current">1</span>
-              <a class="page-numbers" href="#">2</a>
-              <a class="page-numbers" href="#">3</a>
-              <a class="next page-numbers" href="#"><i class="fa fa-long-arrow-right"></i></a>
+                 <ul uib-pagination total-items="shop.products.length" ng-model="shop.currentPage" ng-change="shop.pageChanged()"></ul>
             </div>
           </div>
           <div class="noo-sidebar col-md-3">
@@ -77,7 +74,7 @@
               <div class="widget commerce widget_product_categories">
                 <h3 class="widget-title">Categories</h3>
                 <ul class="product-categories">
-                  <li ng-repeat="category in main.categories"><a href="#">{{category.name}}</a></li>
+                  <li ng-repeat="category in shop.categories"><a href="#">{{category.name}}</a></li>
 
                 </ul>
               </div>

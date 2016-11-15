@@ -74,22 +74,15 @@
                   <div class="summary entry-summary">
                     <ul class="noo_link_boxes">
                       <li>
-                        <a href="#">Small <i class="fa fa-angle-down"></i></a>
-                        <ul>
-                          <li>
-                            <a href="#">Large</a>
-                          </li>
-                          <li>
-                            <a href="#">Medium</a>
-                          </li>
-                        </ul>
+                        <a href="#">{{boxDetails.selectedBox.size}}</a>
+                        
                       </li>
                     </ul>
-                    <h1 class="product_title entry-title">Small Fruit Box</h1>
-                    <p class="price"><span class="amount">&#36;20.00</span></p>
+                    <h1 class="product_title entry-title">{{boxDetails.selectedBox.boxName}}</h1>
+                    <p class="price"><span class="amount">&#36;{{boxDetails.selectedBox.unitPrice}}</span></p>
                     <div class="description">
                       <p>
-                        Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt eroat  labore et dolore magna aliquanim veniam.
+                       {{boxDetails.selectedBox.description}}
                       </p>
                     </div>
                     <div class="product_meta">
@@ -137,41 +130,14 @@
                       <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab-noo_boxes_tab">
                           <ul>
-                            <li>
+                            <li ng-repeat="boxContent in boxDetails.selectedBox.boxContents">
                               <div class="box-item">
                                 <img width="150" height="150" src="images/box/box_100x100.jpg" alt="" />
-                                <strong>Pomegranates</strong>
-                                <span>1.5kg</span>
+                                <strong>{{boxContent.product.name}}</strong>
+                                <span>Qty:{{boxContent.quantity}}&nbsp;&nbsp;&nbsp;&nbsp;{{boxContent.weight}}KG</span>
                               </div>
                             </li>
-                            <li>
-                              <div class="box-item">
-                                <img width="150" height="150" src="images/box/box_100x100.jpg" alt="" />
-                                <strong>Apples</strong>
-                                <span>2kg</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="box-item">
-                                <img width="150" height="150" src="images/box/box_100x100.jpg" alt="" />
-                                <strong>Passion Fruits</strong>
-                                <span>1kg</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="box-item">
-                                <img width="150" height="150" src="images/box/box_100x100.jpg" alt="" />
-                                <strong>Mangoes</strong>
-                                <span>1.5kg</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="box-item">
-                                <img width="150" height="150" src="images/box/box_100x100.jpg" alt="" />
-                                <strong>Limes</strong>
-                                <span>1kg</span>
-                              </div>
-                            </li>
+
                           </ul>
                           <p class="ds">We do our best to send you the things youwill will chosen. Our photos do not show the actual quantities.</p>
                         </div>

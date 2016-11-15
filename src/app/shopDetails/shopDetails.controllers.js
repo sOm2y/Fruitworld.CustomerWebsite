@@ -6,9 +6,12 @@
     .controller('ShopDetailsController', ShopDetailsController);
 
   /** @ngInject */
-  function ShopDetailsController(fruitWorldAPIService) {
+  function ShopDetailsController(fruitWorldAPIService, $location, $anchorScroll) {
     var vm = this;
     vm.quantity = 1;
-    vm.selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
+    $location.hash('shopTop');
+    $anchorScroll();
+    if(localStorage.getItem('selectedProduct'))
+      vm.selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
   }
 })();

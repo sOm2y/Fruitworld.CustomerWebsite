@@ -184,6 +184,25 @@
         return newShoppingCart;
       };
 
+    }])
+    .service('loadingService', ['$rootScope','webDevTec', function($rootScope,webDevTec) {
+        this.activate = function(isLoading) {
+          if(isLoading){
+            this.getWebDevTec();
+            $rootScope.classAnimation = 'rubberBand';
+          }else{
+            $rootScope.classAnimation ='';
+          }
+        };
+      
+         this.getWebDevTec = function() {
+          var awesomeThings = webDevTec.getTec();
+    
+          angular.forEach(awesomeThings, function(awesomeThing) {
+            awesomeThing.rank = Math.random();
+          });
+        }
+        
     }]);
 
 })();

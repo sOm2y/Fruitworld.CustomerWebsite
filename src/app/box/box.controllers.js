@@ -6,7 +6,7 @@
     .controller('BoxController', BoxController);
 
   /** @ngInject */
-  function BoxController(fruitWorldAPIService, $scope) {
+  function BoxController(fruitWorldAPIService,$scope,$state) {
     var vm = this;
     fruitWorldAPIService.query({
         section: 'box/read/'
@@ -28,12 +28,13 @@
         };
         vm.pageChanged();
 
-        vm.selectProduct = function(box) {
+        vm.selectBox = function(box) {
           vm.selectedBox = box;
           localStorage.setItem('selectedBox', JSON.stringify(vm.selectedBox));
           console.log(vm.selectedBox);
-          $state.go('home.box.details');
+          $state.go('box.details');
         };
+        
       }, function(err) {
         console.log(err);
       });
