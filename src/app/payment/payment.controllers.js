@@ -23,7 +23,7 @@
 							data: {
 								amount: vm.amount,
 								payment_method_nonce: nonce,
-                orderId: 'ORD0005601399'
+                				orderId: 'ORD0005601399'
 							}
 						}).success(function (data) {
 							vm.transation = data;
