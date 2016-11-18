@@ -6,9 +6,9 @@
     .controller('ShopController', ShopController);
 
   /** @ngInject */
-  function ShopController($rootScope,fruitWorldAPIService,$state,loadingService) {
+  function ShopController($rootScope, $scope,fruitWorldAPIService,$state,shoppingCartService) {
     var vm = this;
-    loadingService.activate(true);
+    
     fruitWorldAPIService.query({
         section: 'products/read/'
       })
@@ -20,7 +20,7 @@
         vm.currentPage = 1,
         vm.numPerPage = 12,
         vm.maxSize = 5;
-
+        
 
         vm.pageChanged = function(){
           var begin = ((vm.currentPage - 1) * vm.numPerPage),
@@ -29,12 +29,17 @@
           vm.filteredProducts = vm.products.slice(begin, end);
         };
         vm.pageChanged();
-
+        
         vm.selectProduct = function(product) {
           vm.selectedProduct = product;
           localStorage.setItem('selectedProduct', JSON.stringify(vm.selectedProduct));
           console.log(vm.selectProduct);
-          $state.go('shop.details');
+          if($rootScope.currentState === 'shop.details'){
+             $state.go('shop.details',{productId: product.productId});
+          }else{
+             $state.go('shop.details',{productId: product.productId});
+          }
+         
         };
          $rootScope.isLoading = false;
       }, function(err) {
@@ -50,6 +55,13 @@
       }, function(err) {
         console.log(err);
       });
-
+      
+      vm.addProduct = function(product,quantity) {
+        shoppingCartService.addProduct(product,quantity);
+        var updatedShoppingCart = JSON.parse(localStorage.getItem('countedShoppingCart'));
+        shoppingCartService.getTotalPrice(updatedShoppingCart);
+        // vm.$apply(); //run a digest cycle again to refesh dom
+        vm.countedShoppingCart = shoppingCartService.getShoppingCart();
+      };
   }
 })();

@@ -15,7 +15,7 @@
         <div class="row">
           <div class="noo-main col-md-9">
             <div class="noo-catalog">
-              <p class="commerce-result-count">Showing 1&ndash;9 of 18 results</p>
+              <p class="commerce-result-count">Showing {{shop.currentPage*shop.numPerPage-shop.numPerPage}}&ndash;{{shop.currentPage*shop.numPerPage}} of {{shop.products.length}} results</p>
               <div class="product-style-control pull-right">
                 <span class="noo-list"><a href="shop-list.html"><i class="fa fa-th-list"></i></a></span>
                 <span class="noo-grid active"><i class="fa fa-th-large"></i></span>
@@ -48,7 +48,7 @@
                     <span class="price"><span class="amount">&#36;{{product.listPrice}}</span></span>
                     <div class="noo-product-action">
                       <div class="noo-action">
-                        <a href="" ng-click="main.addProduct(product)" class="button product_type_simple add_to_cart_button">
+                        <a href="" ng-click="shop.addProduct(product,1)" class="button product_type_simple add_to_cart_button">
                           <span>Add to cart</span>
                         </a>
                       </div>
@@ -105,54 +105,12 @@
                     </a>
                     <span class="amount">&#36;10.00</span>
                   </li>
-                  <li>
-                    <a href="shop-detail.html">
-                      <img width="100" height="100" src="organicc/images/product/product_100x100.jpg" alt="" />
-                      <span class="product-title">Cookie</span>
-                    </a>
-                    <span class="amount">&#36;15.00</span>
-                  </li>
-                  <li>
-                    <a href="shop-detail.html">
-                      <img width="100" height="100" src="organicc/images/product/product_100x100.jpg" alt="" />
-                      <span class="product-title">Brown Bread</span>
-                    </a>
-                    <span class="amount">&#36;12.00</span>
-                  </li>
-                  <li>
-                    <a href="shop-detail.html">
-                      <img width="100" height="100" src="organicc/images/product/product_100x100.jpg" alt="" />
-                      <span class="product-title">Apples</span>
-                    </a>
-                    <span class="amount">&#36;3.95</span>
-                  </li>
-                  <li>
-                    <a href="shop-detail.html">
-                      <img width="100" height="100" src="organicc/images/product/product_100x100.jpg" alt="" />
-                      <span class="product-title">Pomegranates</span>
-                    </a>
-                    <span class="amount">&#36;3.90</span>
-                  </li>
                 </ul>
               </div>
               <div class="widget commerce widget_product_tag_cloud">
                 <h3 class="widget-title">Product Tags</h3>
                 <div class="tagcloud">
-                  <a href="#">apple</a>
-                  <a href="#">bread</a>
-                  <a href="#">broccoli</a>
-                  <a href="#">brown bread</a>
-                  <a href="#">carrot</a>
-                  <a href="#">celery</a>
-                  <a href="#">cookie</a>
-                  <a href="#">cucumbers</a>
-                  <a href="#">detox juicing</a>
-                  <a href="#">french bread</a>
-                  <a href="#">fruits</a>
-                  <a href="#">green apple</a>
-                  <a href="#">lemon</a>
-                  <a href="#">lime</a>
-                  <a href="#">mango</a>
+                    <a  ng-repeat="category in shop.categories" href="#">{{category.name}}</a>
                 </div>
               </div>
             </div>

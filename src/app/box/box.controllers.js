@@ -32,7 +32,7 @@
           vm.selectedBox = box;
           localStorage.setItem('selectedBox', JSON.stringify(vm.selectedBox));
           console.log(vm.selectedBox);
-          $state.go('box.details');
+          $state.go('box.details',{boxId:box.boxId});
         };
         
         $rootScope.isLoading = false;

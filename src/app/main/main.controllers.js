@@ -32,11 +32,15 @@
         }
 			}
     });
-
+    
+     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) {
+       $rootScope.isLoading = false;
+     });
+    
     $rootScope.setUserAuth = function(oauth){
       var authHeader = 'Bearer '+oauth.access_token;
       $http.defaults.headers.common.Authorization = authHeader;
-  };
+    };
 
     $scope.$watch(function() {
       return localStorage.getItem('countedShoppingCart');
@@ -66,22 +70,12 @@
         console.log(err);
       });
 
-    vm.addProduct = function(product,quantity) {
-      shoppingCartService.addProduct(product,quantity);
-      var updatedShoppingCart = JSON.parse(localStorage.getItem('countedShoppingCart'));
-      shoppingCartService.getTotalPrice(updatedShoppingCart);
-      // vm.$apply(); //run a digest cycle again to refesh dom
-      vm.countedShoppingCart = shoppingCartService.getShoppingCart();
-    };
+
     
-
-
     function showToastr() {
       toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
       vm.classAnimation = '';
     }
 
-  
-    
   }
 })();

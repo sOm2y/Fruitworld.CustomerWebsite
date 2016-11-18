@@ -80,7 +80,7 @@
         }
       })
       .state('shop.details', {
-        url: '/details',
+        url: '/product/:productId',
         views: {
           "shop-details-view": {
             templateUrl: 'app/shopDetails/shop-details.html',
@@ -103,7 +103,7 @@
         }
       })
       .state('box.details', {
-        url: '/details',
+        url: '/details/:boxId',
         views: {
           "box-details-view": {
             templateUrl: 'app/boxDetails/boxDetails.html',

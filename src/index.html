@@ -65,10 +65,10 @@
   								<a href="" ui-sref="home.shoppingCart">
   									<span class="has-cart">
   										<i class="fa fa-shopping-cart"></i>
-  										<em>{{totalCount}}</em>
+  										<em>{{totalCount>0&&totalCount?totalCount:0}}</em>
   									</span>
   								</a>
-  								&nbsp; &#8209; &nbsp; <span class="amount">{{totalPrice | currency}}</span>
+  								&nbsp; &#8209; &nbsp; <span class="amount">{{totalPrice>0&&totalPrice?totalPrice:0 | currency}}</span>
   							</li>
   							<li>
   								<a href="#" class="fa fa-search noo-search" id="noo-search"></a>
@@ -346,7 +346,8 @@
     <!-- endinject -->
     <!-- endbuild -->
     <script src="https://js.braintreegateway.com/js/braintree-2.29.0.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVo8FjNhvqwmbaAAl06wLAdlSULG4HZEk&"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVo8FjNhvqwmbaAAl06wLAdlSULG4HZEk&&"
     async defer></script>
+
   </body>
 </html>

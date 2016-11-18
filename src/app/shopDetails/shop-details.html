@@ -33,7 +33,7 @@
                       <div class="quantity">
                         <input type="number" ng-model="shopDetails.quantity" title="Qty" class="input-text qty text"/>
                       </div>
-                      <button type="submit" class="single_add_to_cart_button button" ng-click="main.addProduct(shopDetails.selectedProduct,shopDetails.quantity)">Add to cart</button>
+                      <button type="submit" class="single_add_to_cart_button button" ng-click="shop.addProduct(shopDetails.selectedProduct,shopDetails.quantity)">Add to cart</button>
                     </form>
                     <div class="yith-wcwl-add-to-wishlist">
                                               <div class="yith-wcwl-add-button">
@@ -185,7 +185,7 @@
                 <div class="related products">
                   <h2>Related Products</h2>
                   <div class="products row product-grid">
-                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
+                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product" ng-repeat="product in shop.products | limitTo: 3">
                       <div class="noo-product-inner">
                         <div class="noo-product-thumbnail">
                           <a href="shop-detail.html">
@@ -198,61 +198,11 @@
                           </div>
                         </div>
                         <div class="noo-product-title">
-                          <h3><a href="shop-detail.html">Carrots</a></h3>
-                          <span class="price"><span class="amount">&#36;1.05</span></span>
+                          <h3><a href="" ng-click="shop.selectProduct(product)">{{product.name}}</a></h3>
+                          <span class="price"><span class="amount">&#36;{{product.listPrice}}</span></span>
                           <div class="noo-product-action">
                             <div class="noo-action">
-                              <a href="#" class="button product_type_simple add_to_cart_button">
-                                <span>Add to cart</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                      <div class="noo-product-inner">
-                        <div class="noo-product-thumbnail">
-                          <a href="shop-detail.html">
-                            <img width="600" height="760" src="images/product/product_260x330.jpg" alt="" />
-                          </a>
-                          <div class="noo-rating">
-                            <div class="star-rating">
-                              <span style="width:0%"></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="noo-product-title">
-                          <h3><a href="shop-detail.html">Celery</a></h3>
-                          <span class="price"><span class="amount">&#36;2.09</span></span>
-                          <div class="noo-product-action">
-                            <div class="noo-action">
-                              <a href="#" class="button product_type_simple add_to_cart_button">
-                                <span>Add to cart</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                      <div class="noo-product-inner">
-                        <div class="noo-product-thumbnail">
-                          <a href="shop-detail.html">
-                            <img width="600" height="760" src="images/product/product_260x330.jpg" alt="" />
-                          </a>
-                          <div class="noo-rating">
-                            <div class="star-rating">
-                              <span style="width:0%"></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="noo-product-title">
-                          <h3><a href="shop-detail.html">Onions</a></h3>
-                          <span class="price"><span class="amount">&#36;1.70</span></span>
-                          <div class="noo-product-action">
-                            <div class="noo-action">
-                              <a href="#" class="button product_type_simple add_to_cart_button">
+                              <a href="" ng-click="shop.addProduct(product,1)" class="button product_type_simple add_to_cart_button">
                                 <span>Add to cart</span>
                               </a>
                             </div>
@@ -276,67 +226,25 @@
                 <div class="widget commerce widget_product_categories">
                   <h3 class="widget-title">Categories</h3>
                   <ul class="product-categories">
-                    <li ng-repeat="category in main.categories"><a href="#">{{category.name}}</a></li>
+                    <li ng-repeat="category in shop.categories"><a href="#">{{category.name}}</a></li>
                   </ul>
                 </div>
                 <div class="widget commerce widget_products">
                   <h3 class="widget-title">Popular products</h3>
                   <ul class="product_list_widget">
-                    <li>
+                    <li  ng-repeat="product in shop.products | limitTo: 3">
                       <a href="shop-detail.html">
                         <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                        <span class="product-title">French Bread</span>
+                        <span class="product-title">{{product.name}}</span>
                       </a>
-                      <span class="amount">&#36;10.00</span>
-                    </li>
-                    <li>
-                      <a href="shop-detail.html">
-                        <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                        <span class="product-title">Cookie</span>
-                      </a>
-                      <span class="amount">&#36;15.00</span>
-                    </li>
-                    <li>
-                      <a href="shop-detail.html">
-                        <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                        <span class="product-title">Brown Bread</span>
-                      </a>
-                      <span class="amount">&#36;12.00</span>
-                    </li>
-                    <li>
-                      <a href="shop-detail.html">
-                        <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                        <span class="product-title">Apples</span>
-                      </a>
-                      <span class="amount">&#36;3.95</span>
-                    </li>
-                    <li>
-                      <a href="shop-detail.html">
-                        <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                        <span class="product-title">Pomegranates</span>
-                      </a>
-                      <span class="amount">&#36;3.90</span>
+                      <span class="amount">&#36;{{product.listPrice}}</span>
                     </li>
                   </ul>
                 </div>
                 <div class="widget commerce widget_product_tag_cloud">
                   <h3 class="widget-title">Product Tags</h3>
                   <div class="tagcloud">
-                    <a href="#">apple</a>
-                    <a href="#">bread</a>
-                    <a href="#">broccoli</a>
-                    <a href="#">brown bread</a>
-                    <a href="#">carrot</a>
-                    <a href="#">celery</a>
-                    <a href="#">cookie</a>
-                    <a href="#">cucumbers</a>
-                    <a href="#">detox juicing</a>
-                    <a href="#">french bread</a>
-                    <a href="#">fruits</a>
-                    <a href="#">green apple</a>
-                    <a href="#">lemon</a>
-                    <a href="#">lime</a>
-                    <a href="#">mango</a>
+                     <a  ng-repeat="category in shop.categories" href="#">{{category.name}}</a>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-<section class="noo-page-heading eff">
+<section id="boxTop"  class="noo-page-heading eff">
       <div class="container">
         <div class="noo-heading-content">
           <h1 class="page-title eff">Box Detail</h1>
@@ -260,7 +260,7 @@
                 <div class="related products">
                   <h2>Related Products</h2>
                   <div class="products row product-grid">
-                    <div class="masonry-item noo-product-column col-md-3 col-sm-6 product">
+                    <div class="masonry-item noo-product-column col-md-3 col-sm-6 product" ng-repeat="relatedBox in box.boxes | limitTo: 4">
                       <div class="noo-product-inner">
                         <div class="noo-product-thumbnail">
                           <a href="shop-detail.html">
@@ -273,83 +273,8 @@
                           </div>
                         </div>
                         <div class="noo-product-title">
-                          <h3><a href="shop-detail.html">Carrots</a></h3>
-                          <span class="price"><span class="amount">&#36;1.05</span></span>
-                          <div class="noo-product-action">
-                            <div class="noo-action">
-                              <a href="#" class="button product_type_simple add_to_cart_button">
-                                <span>Add to cart</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="masonry-item noo-product-column col-md-3 col-sm-6 product">
-                      <div class="noo-product-inner">
-                        <div class="noo-product-thumbnail">
-                          <a href="shop-detail.html">
-                            <img width="600" height="760" src="images/product/product_260x330.jpg" alt="" />
-                          </a>
-                          <div class="noo-rating">
-                            <div class="star-rating">
-                              <span style="width:0%"></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="noo-product-title">
-                          <h3><a href="shop-detail.html">Celery</a></h3>
-                          <span class="price"><span class="amount">&#36;2.09</span></span>
-                          <div class="noo-product-action">
-                            <div class="noo-action">
-                              <a href="#" class="button product_type_simple add_to_cart_button">
-                                <span>Add to cart</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="masonry-item noo-product-column col-md-3 col-sm-6 product">
-                      <div class="noo-product-inner">
-                        <div class="noo-product-thumbnail">
-                          <a href="shop-detail.html">
-                            <img width="600" height="760" src="images/product/product_260x330.jpg" alt="" />
-                          </a>
-                          <div class="noo-rating">
-                            <div class="star-rating">
-                              <span style="width:0%"></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="noo-product-title">
-                          <h3><a href="shop-detail.html">Onions</a></h3>
-                          <span class="price"><span class="amount">&#36;1.70</span></span>
-                          <div class="noo-product-action">
-                            <div class="noo-action">
-                              <a href="#" class="button product_type_simple add_to_cart_button">
-                                <span>Add to cart</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="masonry-item noo-product-column col-md-3 col-sm-6 product">
-                      <div class="noo-product-inner">
-                        <div class="noo-product-thumbnail">
-                          <a href="shop-detail.html">
-                            <img width="600" height="760" src="images/product/product_260x330.jpg" alt="" />
-                          </a>
-                          <div class="noo-rating">
-                            <div class="star-rating">
-                              <span style="width:0%"></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="noo-product-title">
-                          <h3><a href="shop-detail.html">Cucumbers</a></h3>
-                          <span class="price"><span class="amount">&#36;1.95</span></span>
+                          <h3><a href="shop-detail.html">{{relatedBox.boxName}}</a></h3>
+                          <span class="price"><span class="amount">&#36;{{relatedBox.listPrice}}</span></span>
                           <div class="noo-product-action">
                             <div class="noo-action">
                               <a href="#" class="button product_type_simple add_to_cart_button">
