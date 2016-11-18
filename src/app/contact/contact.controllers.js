@@ -16,7 +16,13 @@
         ['Fruit World Mt Roskill', '30A Frost Road, Mt Roskill, Auckland Central', ''],
         ['Fruit World Mt Wellington', 'Mt Wellington Shopping Centre, Penrose', ''],
         ['Fruit World Ponsonby', 'Unit 4, 280 Richmond Road, Ponsonby, Auckland Central', ''],
-        ['Supa Royal oak', '100 pah road, royal oak, Auckland Central', '']
+        ['Supa Royal oak', '100 pah road, royal oak, Auckland Central', ''],
+        ['Fruit World Albany', '50 Greville Road, Albany, Auckland North', ''],
+        ['Fruit World Chatswood', '174 Mokoia Road, Chatswood, Auckland North', ''],
+        ['Fruit World North Harbour', '343 Albany Highway, North Harbour, Auckland North', ''],
+        ['Fruit World Silverdale', '2200 East Coast Road, Silverdale, Auckland North', ''],
+        ['Fruit World Whangaparaoa', '1/15 Karepiro Dr, Stanmore Bay, Whangaparaoa 0932', '']
+ 
     ];
     
     var geocoder;
@@ -33,9 +39,11 @@
         geocoder = new google.maps.Geocoder();
     
         for (var i = 0; i < locations.length; i++) {
-    
-    
+        //TODO: fix query overlimits for google maps
+        // var wait = true;
+        // setTimeout("wait = true", 100);
             geocodeAddress(locations, i);
+        
         }
     }
     // google.maps.event.addDomListener(window, "load", initialize);
@@ -44,6 +52,7 @@
         var title = locations[i][0];
         var address = locations[i][1];
         var url = locations[i][2];
+           
         geocoder.geocode({
             'address': locations[i][1]
         },
