@@ -110,9 +110,20 @@
       this.addProduct = function(newProduct,quantity) {
         if (localStorage.getItem('countedShoppingCart')) {
           var oldShoppingCart = JSON.parse(localStorage.getItem('countedShoppingCart'));
-          updateProductIndex = _.findIndex(oldShoppingCart, function(oldProduct) { return oldProduct.productId === newProduct.productId; });
+          var updateProductIndex = _.findIndex(oldShoppingCart, function(oldProduct) { 
+            if(_.has(newProduct,'boxId')&&_.has(oldProduct,'boxId')){
+                return oldProduct.boxId === newProduct.boxId; 
+            }else{
+                return oldProduct.productId === newProduct.productId; 
+            }
+          });
           if(updateProductIndex !== -1){
-            oldShoppingCart[updateProductIndex].product.push(newProduct);
+            if(_.has(oldShoppingCart[updateProductIndex],'boxId')){
+               oldShoppingCart[updateProductIndex].box.push(newProduct);
+            }else{
+               oldShoppingCart[updateProductIndex].product.push(newProduct);
+            }
+           
             if(quantity>1){
               oldShoppingCart[updateProductIndex].count=oldShoppingCart[updateProductIndex].count+quantity;
             }else{
@@ -121,17 +132,43 @@
           }else{
             var newProducts = [];
             newProducts.push(newProduct);
-            oldShoppingCart.push({
-              productId:newProduct.productId,
-              product:newProducts,
-              count: quantity>1 ? quantity : newProducts.length
+            oldShoppingCart.push(function(){
+              if(_.has(newProduct,'boxId')){
+                return {
+                  boxId:newProduct.boxId,
+                  box:newProducts,
+                  count: quantity>1 ? quantity : newProducts.length
+                }
+              }else{
+               return {
+                  productId:newProduct.productId,
+                  product:newProducts,
+                  count: quantity>1 ? quantity : newProducts.length
+                };
+              }
             })
           }
           localStorage.setItem('countedShoppingCart', JSON.stringify(oldShoppingCart));
         } else {
-          var newShoppingCart = [];
-          newShoppingCart.push(newProduct);
-          localStorage.setItem('countedShoppingCart', JSON.stringify(this.countDuplicateProducts(newShoppingCart)));
+           var newProducts = [];
+           var oldShoppingCart = [];
+            newProducts.push(newProduct);
+            oldShoppingCart.push(function(){
+              if(_.has(newProduct,'boxId')){
+                return {
+                  boxId:newProduct.boxId,
+                  box:newProducts,
+                  count: quantity>1 ? quantity : newProducts.length
+                }
+              }else{
+               return {
+                  productId:newProduct.productId,
+                  product:newProducts,
+                  count: quantity>1 ? quantity : newProducts.length
+                };
+              }
+            }())
+           localStorage.setItem('countedShoppingCart', JSON.stringify(oldShoppingCart));
         }
       };
 
@@ -153,14 +190,14 @@
         }
       };
 
-      this.countDuplicateProducts = function(productsInCart) {
+      this.countDuplicateProducts = function(productsInCart,quantity) {
         var result = _(productsInCart)
           .groupBy('productId')
           .map(function(products, productId) {
             return {
               productId: productId,
               product: products,
-              count: products.length
+              count: quantity
             };
           }).value();
         return result;
@@ -170,7 +207,12 @@
         $rootScope.totalPrice = 0;
         $rootScope.totalCount = 0;
         return _.each(productsInCart, function(product) {
-          $rootScope.totalPrice = $rootScope.totalPrice + product.product[0].listPrice * product.count;
+          if(_.has(product,"boxId")){
+             $rootScope.totalPrice = $rootScope.totalPrice + product.box[0].unitPrice * product.count;
+          }else{
+             $rootScope.totalPrice = $rootScope.totalPrice + product.product[0].listPrice * product.count;
+          }
+         
           $rootScope.totalCount = $rootScope.totalCount + parseInt(product.count);
           // console.log("total count "+ $rootScope.totalCount+"product count "+product.count);
         });

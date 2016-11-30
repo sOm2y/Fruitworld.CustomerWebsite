@@ -90,9 +90,9 @@
                     </div>
                     <form class="cart">
                       <div class="quantity">
-                        <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
+                         <input type="number" ng-model="boxDetails.quantity" title="Qty" class="input-text qty text"/>
                       </div>
-                      <button type="submit" class="single_add_to_cart_button button">Add to cart</button>
+                      <button  class="single_add_to_cart_button button" ng-click="box.addProduct(boxDetails.selectedBox,boxDetails.quantity)">Add to cart</button>
                     </form>
                     <div class="yith-wcwl-add-to-wishlist">
                                               <div class="yith-wcwl-add-button">
@@ -277,7 +277,7 @@
                           <span class="price"><span class="amount">&#36;{{relatedBox.listPrice}}</span></span>
                           <div class="noo-product-action">
                             <div class="noo-action">
-                              <a href="#" class="button product_type_simple add_to_cart_button">
+                              <a href="" ng-click="box.addProduct(relatedBox,1)" class="button product_type_simple add_to_cart_button">
                                 <span>Add to cart</span>
                               </a>
                             </div>

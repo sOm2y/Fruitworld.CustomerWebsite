@@ -8,6 +8,7 @@
   /** @ngInject */
   function BoxDetailsController(fruitWorldAPIService, $scope, $location,$anchorScroll) {
       var vm = this;
+      vm.quantity = 1;
       $location.hash('boxTop');
       $anchorScroll();
       if(localStorage.getItem('selectedBox'))
