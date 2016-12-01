@@ -107,6 +107,7 @@
       }
     ])
     .service('shoppingCartService', ['$rootScope', function($rootScope) {
+      //TODO: this service need to refactor due to seperate of concerns.
       this.addProduct = function(newProduct,quantity) {
         if (localStorage.getItem('countedShoppingCart')) {
           var oldShoppingCart = JSON.parse(localStorage.getItem('countedShoppingCart'));
