@@ -72,7 +72,12 @@
                 bounds.extend(marker.getPosition());
                 map.fitBounds(bounds);
             } else {
-                alert("geocode of " + address + " failed:" + status);
+                 if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                     
+                 }else{
+                    alert("geocode of " + address + " failed:" + status);
+                 }
+              
             }
         });
     }
